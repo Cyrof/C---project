@@ -10,7 +10,9 @@ class Map
 private:
     int counter = 0;
     int counter2 = 0;
-    string *mapd[21][21];
+    
+protected:
+    string mapd[21][21];
 
     //initialise functions
 public:
@@ -19,6 +21,9 @@ public:
 
     //destructor
     ~Map();
+
+    //create map
+    void createMap();
 
     //show map function (getter)
     void showmap();

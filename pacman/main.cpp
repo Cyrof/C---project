@@ -19,11 +19,11 @@ int main()
     // cout << xcoord << " " << ycoord << endl;
 
     Map grid;
-    Position *pac = new Position(1, 1, "P");
-    Position *berry = new Position(11, 9, "B");
-    pac->setNewCoor();
-    berry->setNewCoor();
-    grid.showmap();
+    grid.createMap();
+    Position ghost = Position(5, 10, "G");
+    ghost.createMap();
+    ghost.setNewCoor();
+    ghost.showmap();
 
     return 0;
 }
