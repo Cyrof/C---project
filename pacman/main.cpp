@@ -24,6 +24,9 @@ int main()
     ghost.createMap();
     ghost.setNewCoor();
     ghost.showmap();
+    int x, y;
+    ghost.getCoor(&x, &y);
+    cout << x << y << endl;
 
     return 0;
 }
