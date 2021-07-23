@@ -12,6 +12,7 @@ private:
 
     //initialise functions
 public:
+    Position();
     //constructor
     Position(int x, int y);
 

@@ -2,7 +2,11 @@
 #include "position.h"
 using namespace std;
 
-//create constructor
+Position::Position(){
+    
+}
+
+//constructor
 Position::Position(int x, int y)
 {
     this->Xcoord = x;

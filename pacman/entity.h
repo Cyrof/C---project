@@ -6,16 +6,33 @@ using namespace std;
 class Entity : public Position
 {
     //initialise fields
-private:
+protected:
     Position p;
+    string name;
+    int EX, EY;
 
     //initialise function
 public:
+    Entity();
+
     //constructor
-    Entity(int x, int y);
+    Entity(int x, int y, string n);
 
     //destructor
     ~Entity();
 
-    virtual void move();
+    //virtual function 
+    virtual void move() = 0;
+
+    //get x coord 
+    int getXcoord();
+
+    //get y coord
+    int getYcoord();
+
+    //get name 
+    string getName();
+
+    //set pos 
+    void setCoord(int x, int y);
 };
