@@ -3,27 +3,29 @@
 using namespace std;
 
 //create constructor
-Position::Position(int x, int y, string n)
+Position::Position(int x, int y)
 {
     this->Xcoord = x;
     this->Ycoord = y;
-    this->name = n;
 }
 
-//destructor 
+//destructor
 Position::~Position()
 {
+    cout << "Destructing Position" << endl;
 }
 
 //fuction to set new cood for entity
-void Position::setNewCoor()
+void Position::setNewCoor(int x, int y)
 {
-    setPos(Xcoord, Ycoord, name);
+    this->Xcoord = x;
+    this->Ycoord = y;
 }
 
-//function to get coord of entity
-void Position::getCoor(int *X, int *Y)
-{
-    *X = Xcoord;
-    *Y = Ycoord;
+int Position::getX(){
+    return Xcoord;
+}
+
+int Position::getY(){
+    return Ycoord;
 }

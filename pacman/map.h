@@ -10,14 +10,12 @@ class Map
 private:
     int counter = 0;
     int counter2 = 0;
-    
-protected:
     string mapd[21][21];
 
     //initialise functions
 public:
     // constructor
-    Map();
+    Map(string arr[8][3]);
 
     //destructor
     ~Map();

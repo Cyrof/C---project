@@ -1,28 +1,29 @@
 //lib
 #include <iostream>
-#include "map.h"
 using namespace std;
 
 //Position class with map inheritance
-class Position : public Map
+class Position
 {
     //initialise fields
 private:
     int Xcoord;
     int Ycoord;
-    string name;
 
     //initialise functions
 public:
     //constructor
-    Position(int x, int y, string n);
+    Position(int x, int y);
 
     //destructor
     ~Position();
 
     //change entity coordinates
-    void setNewCoor();
+    void setNewCoor(int x, int y);
 
-    //get entity coordinates
-    void getCoor(int *X, int *Y);
+    //get x coord
+    int getX();
+
+    //get y coord
+    int getY();
 };
