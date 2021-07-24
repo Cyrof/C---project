@@ -3,7 +3,7 @@
 using namespace std;
 
 // constructor of map class which generates map when obj is create
-Map::Map(string arr[8][3])
+Map::Map()
 {
     //nested for loop to build map dynamically
     for (int i = 0; i <= 20; i++)
@@ -13,7 +13,7 @@ Map::Map(string arr[8][3])
             //if statement to create the dimension for the map
             if (i == 0 && j > 0)
             {
-                mapd[i][0] = "";
+                mapd[i][0] = " ";
                 //if else to create 1-0 twice
                 if (j > 9 && j < 20)
                 {
@@ -51,11 +51,10 @@ Map::~Map()
 }
 
 //function to set pos for entity
-// void Map::setPos(int x, int y, string name)
-// {
-//     mapd[x][y] = name;
-//     cout << mapd[x][y] << endl;
-// }
+void Map::setPos(int x, int y, string name)
+{
+    mapd[x][y] = name;
+}
 
 // function to show the map
 void Map::showmap()
@@ -64,40 +63,40 @@ void Map::showmap()
     {
         for (int j = 0; j <= 20; j++)
         {
-            if (i == 0 && j == 0)
-            {
-                cout << " ";
-            }
-            if (j < 20)
-            {
-                cout << mapd[i][j];
-            }
-            else
-            {
-                cout << mapd[i][j] << endl;
-            }
-            // if (j > 0 && mapd[i][j] == "0" && i > 0)
+            // if (i == 0 && j == 0)
             // {
-            //     if (j < 20)
-            //     {
-            //         cout << " ";
-            //     }
-            //     else
-            //     {
-            //         cout << " " << endl;
-            //     }
+            //     cout << " ";
+            // }
+            // if (j < 20)
+            // {
+            //     cout << mapd[i][j];
             // }
             // else
             // {
-            //     if (j < 20)
-            //     {
-            //         cout << mapd[i][j];
-            //     }
-            //     else
-            //     {
-            //         cout << mapd[i][j] << endl;
-            //     }
+            //     cout << mapd[i][j] << endl;
             // }
+            if (j > 0 && mapd[i][j] == "0" && i > 0)
+            {
+                if (j < 20)
+                {
+                    cout << " ";
+                }
+                else
+                {
+                    cout << " " << endl;
+                }
+            }
+            else
+            {
+                if (j < 20)
+                {
+                    cout << mapd[i][j];
+                }
+                else
+                {
+                    cout << mapd[i][j] << endl;
+                }
+            }
         }
     }
 }

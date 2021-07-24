@@ -15,7 +15,7 @@ private:
     //initialise functions
 public:
     // constructor
-    Map(string arr[8][3]);
+    Map();
 
     //destructor
     ~Map();
