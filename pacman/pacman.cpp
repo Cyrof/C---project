@@ -17,3 +17,7 @@ Pacman::~Pacman(){
 void Pacman::move(){
     cout << "Pacman move" << endl;
 }
+
+void Pacman::getInput(char input){
+    this->input = input;
+}

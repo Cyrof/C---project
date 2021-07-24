@@ -100,3 +100,10 @@ void Map::showmap()
         }
     }
 }
+
+//void Map::createEntities
+
+//void Map::getInput(char input){
+    //obj[i].getInput(input)
+// }
+

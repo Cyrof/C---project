@@ -9,7 +9,47 @@ using namespace std;
 
 int counter = 0;
 
-void loadToMap(Entity *arr[3], Map &obj)
+// void cal(char choice){
+
+// }
+
+//not working now 
+void createEntities(Entity *arr[8])
+{
+    string check[20];
+    int counter = 0;
+    for (int i = 0; i < 8; i++)
+    {
+        for (int j = 0; j < 20; j++)
+        {
+            int rndx = (rand() % 20) + 1;
+            int rndy = (rand() % 20) + 1;
+            check[counter] = to_string(rndx) + to_string(rndy);
+            counter++;
+            string combine = to_string(rndx) + to_string(rndy);
+            if (combine == check[j])
+            {
+                if (i == 0)
+                {
+                    arr[i] = new Pacman(rndx, rndy);
+                    break;
+                }
+                if (i < 3)
+                {
+                    arr[i] = new Berry(rndx, rndy);
+                    break;
+                }
+                else
+                {
+                    arr[i] = new Berry(rndx, rndy);
+                    break;
+                }
+            }
+        }
+    }
+}
+
+void loadToMap(Entity *arr[8], Map &obj)
 {
     int x, y;
     string name;
@@ -45,12 +85,14 @@ void mapMenu(Map &obj)
 
 int main()
 {
-    Entity *obj[3] = {nullptr};
-    obj[0] = new Pacman(1, 1);
-    obj[1] = new Ghost(5, 10);
-    obj[2] = new Berry(10, 10);
+    // Entity *obj[3] = {nullptr};
+    // obj[0] = new Pacman(1, 1);
+    // obj[1] = new Ghost(5, 10);
+    // obj[2] = new Berry(10, 10);
+    Entity *entities[8] = {nullptr};
+    createEntities(entities);
     Map grid;
-    loadToMap(obj, grid);
+    loadToMap(entities, grid);
     mapMenu(grid);
 
     // int x, y;
