@@ -6,12 +6,9 @@ Pacman::Pacman(){
 }
 
 //constructor 
-Pacman::Pacman(int x, int y){
-    this->EX = x;
-    this->EY = y;
-    this->name = "P";
+Pacman::Pacman(int x, int y) : Entity(x, y, "P"){
 }
 
 void Pacman::move(){
-    cout << "hi" << endl;
+    cout << "Pacman move" << endl;
 }

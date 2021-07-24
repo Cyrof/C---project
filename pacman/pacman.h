@@ -1,4 +1,5 @@
 //lib
+#pragma once
 #include <iostream>
 #include "entity.h"
 using namespace std;
@@ -10,6 +11,7 @@ private:
     bool canEatGhost;
 
 public:
+    //default constructor 
     Pacman();
 
     //constructor
@@ -18,5 +20,6 @@ public:
     //destructor
     ~Pacman();
 
+    //virtual function from parent 
     void move();
 };

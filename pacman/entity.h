@@ -1,4 +1,5 @@
 //lib
+#pragma once
 #include <iostream>
 #include "position.h"
 using namespace std;
