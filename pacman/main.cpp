@@ -72,10 +72,6 @@ void mapMenu(Map &obj)
 
 int main()
 {
-    // Entity *obj[3] = {nullptr};
-    // obj[0] = new Pacman(1, 1);
-    // obj[1] = new Ghost(5, 10);
-    // obj[2] = new Berry(10, 10);
     Entity *entities[8] = {nullptr};
     createEntities(entities);
 
@@ -90,32 +86,6 @@ int main()
     loadToMap(entities, grid);
     mapMenu(grid);
 
-    // int x, y;
-    // string name;
-    // Map grid;
-
-    // obj[0]->move();
-    // obj[1]->move();
-    // obj[2]->move();
-
-    // obj[2]->setCoord(3,5);
-    // x = obj[2]->getXcoord();
-    // y = obj[2]->getYcoord();
-    // name = obj[2]->getName();
-
-    // cout << "x = " << x << " y = " << y << " name = " << name << endl;
-
-    // int rnd = (rand() % 20) + 1;
-    // cout << rnd << endl;
-
-    // for (int i = 0; i < 3; i++){
-    //     x = obj[i]->getXcoord();
-    //     y = obj[i]->getYcoord();
-    //     name = obj[i]->getName();
-    //     grid.setPos(x,y,name);
-    // }
-
-    // grid.showmap();
 
     return 0;
 }
