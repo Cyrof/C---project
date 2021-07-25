@@ -16,7 +16,7 @@ Position::Position(int x, int y)
 //destructor
 Position::~Position()
 {
-    cout << "Destructing Position" << endl;
+    // cout << "Destructing Position" << endl;
 }
 
 //fuction to set new cood for entity

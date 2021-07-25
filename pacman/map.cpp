@@ -33,7 +33,17 @@ Map::Map()
             {
                 if (j == 0)
                 {
-                    mapd[i][j] = to_string(i);
+                    if (i > 9 && i < 20)
+                    {
+                        mapd[i][j] = to_string(counter2);
+                        counter2++;
+                    }
+                    else if (i == 20){
+                        mapd[i][j] = "0";
+                    }
+                    else{
+                        mapd[i][j] = to_string(i);
+                    }
                 }
                 else
                 {
@@ -104,6 +114,5 @@ void Map::showmap()
 //void Map::createEntities
 
 //void Map::getInput(char input){
-    //obj[i].getInput(input)
+//obj[i].getInput(input)
 // }
-
