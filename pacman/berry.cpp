@@ -13,6 +13,6 @@ Berry::~Berry(){
     cout << "destructing Berry" << endl;
 }
 
-void Berry::move(){
+void Berry::move(char input){
     cout << "Berry Move" << endl;
 }

@@ -22,7 +22,6 @@ public:
     ~Pacman();
 
     //virtual function from parent 
-    void move();
+    void move(char input);
 
-    void getInput(char input);
 };

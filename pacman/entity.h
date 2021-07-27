@@ -23,7 +23,7 @@ public:
     ~Entity();
 
     //virtual function 
-    virtual void move() = 0;
+    virtual void move(char input) = 0;
 
     //get x coord 
     int getXcoord();

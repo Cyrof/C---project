@@ -12,6 +12,6 @@ Ghost::~Ghost(){
     cout << "Destructing Ghost" << endl;
 }
 
-void Ghost::move(){
+void Ghost::move(char input){
     cout << "Ghost move" << endl;
 }

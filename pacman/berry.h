@@ -17,5 +17,5 @@ class Berry : public Entity{
     ~Berry();
 
     //virtual function from parent
-    void move();
+    void move(char input);
 };

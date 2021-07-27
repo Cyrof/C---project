@@ -18,5 +18,5 @@ class Ghost : public Entity
     ~Ghost();
 
     //virtual function from parent 
-    void move();
+    void move(char input);
 };

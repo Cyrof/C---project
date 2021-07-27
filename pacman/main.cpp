@@ -8,9 +8,10 @@ using namespace std;
 
 int counter = 0;
 
-// void cal(char choice){
-
-// }
+//send movement to pacman 
+void sendchoice(Entity *arr[8], char input){
+    arr[0]->move(input);
+}
 
 //checker function for createEntities
 bool checker(string arr[100], string combine)
@@ -69,7 +70,7 @@ void loadToMap(Entity *arr[8], Map &obj)
 {
     int x, y;
     string name;
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < 6; i++)
     {
         x = arr[i]->getXcoord();
         y = arr[i]->getYcoord();
@@ -78,7 +79,7 @@ void loadToMap(Entity *arr[8], Map &obj)
     }
 }
 
-void mapMenu(Map &obj)
+void mapMenu(Map &obj, Entity *arr[8])
 {
     while (true)
     {
@@ -87,6 +88,7 @@ void mapMenu(Map &obj)
         cout << "***T(num) E(num) G(num)***" << endl;
         cout << "(w)Up (s)Down (a)Left (d)Right:";
         cin >> choice;
+        sendchoice(arr, choice);
         if (choice == 'x')
         {
             break;
@@ -104,18 +106,10 @@ int main()
     srand(time(NULL)); // provides different seed for each run
     Entity *entities[8] = {nullptr};
     createEntities(entities);
-    /***
-    for (int i = 0; i < 8; i ++){
-        int x = entities[i]->getXcoord();
-        int y = entities[i]->getYcoord();
-        string name = entities[i]->getName();
-        cout << "name = " << name << " x = " << x << " y = " << y << endl; 
-     }     
-     **/
 
     Map grid;
     loadToMap(entities, grid);
-    mapMenu(grid);
+    mapMenu(grid, entities);
 
     return 0;
 }

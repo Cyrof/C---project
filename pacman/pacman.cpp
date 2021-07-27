@@ -14,10 +14,21 @@ Pacman::~Pacman(){
     cout << "destructing pacman" << endl;
 }
 
-void Pacman::move(){
-    cout << "Pacman move" << endl;
-}
-
-void Pacman::getInput(char input){
-    this->input = input;
+void Pacman::move(char input){
+    
+    switch (input)
+    {
+        case 'w':
+            Pacman::setCoord(getXcoord(), getYcoord() + 2);
+            break;
+        case 's':
+            Pacman::setCoord(getXcoord(), getYcoord() - 2);
+            break;
+        case 'a':
+            Pacman::setCoord(getXcoord() - 2, getYcoord());
+            break;
+        case 'd':
+            Pacman::setCoord(getXcoord() + 2, getYcoord());
+            break;
+    }
 }
