@@ -20,9 +20,6 @@ public:
     //destructor
     ~Map();
 
-    //create map
-    void createMap();
-
     //show map function (getter)
     void showmap();
 
