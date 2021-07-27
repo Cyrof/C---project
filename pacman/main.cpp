@@ -15,17 +15,18 @@ bool Pacmancollisioncheck(Entity *arr[8], char input)
 //checker function for createEntities
 bool checker(string arr[100], string combine)
 {
-    int allcoords[];
-    for(int i = 0; i < 8; i++)
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 8; i++)
     {
-        if (combine == arr[i])
+        for (int i = 0; i < 100; i++)
         {
-            return false;
-        }
-        else
-        {
-            return true;
+            if (combine == arr[i])
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
     return false;
@@ -51,13 +52,13 @@ bool Ghostcollisioncheck(Entity *arr[8], char input)
         y = arr[j]->getYcoord();
         for (int x = 0; x < 4; x++)
         {
-            switch(x){
-                case 0:
-                    x += 1
-                    combine = to_string(x) + to_string(y);
-                    if (checker(allcoords, combine) == false){
-                        
-                    }
+            switch (x)
+            {
+            case 0:
+                x += 1 combine = to_string(x) + to_string(y);
+                if (checker(allcoords, combine) == false)
+                {
+                }
             }
         }
     }
