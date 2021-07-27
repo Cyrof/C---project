@@ -4,7 +4,7 @@
 #include "position.h"
 using namespace std;
 
-class Entity : public Position
+class Entity
 {
     //initialise fields
 protected:

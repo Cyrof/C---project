@@ -1,7 +1,6 @@
 //lib
 #pragma once
 #include <iostream>
-#include "entity.h"
 using namespace std;
 
 // Map class
@@ -12,7 +11,6 @@ private:
     int counter = 0;
     int counter2 = 0;
     string mapd[21][21];
-    // Entity* arr[8];
 
     //initialise functions
 public:

@@ -9,8 +9,6 @@ Entity::Entity()
 //constructor
 Entity::Entity(int x, int y, string n)
 {
-    this->EX = x;
-    this->EY = y;
     this->name = n;
     this->p = Position(x, y);
 }

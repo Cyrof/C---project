@@ -1,7 +1,6 @@
 #include <iostream>
+#include <time.h>
 #include "map.h"
-// #include "position.h"
-// #include "entity.h"
 #include "ghost.h"
 #include "pacman.h"
 #include "berry.h"
@@ -13,27 +12,57 @@ int counter = 0;
 
 // }
 
+//checker function for createEntities
+bool checker(string arr[100], string combine)
+{
+    for (int i = 0; i < 100; i++)
+    {
+        if(combine == arr[i]){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    return false;
+}
+
 //not working now
 void createEntities(Entity *arr[8])
 {
-    string check[20];
+    string visited[8];
     int counter = 0;
-    for (int i = 0; i < 8; i++){
-        if (i == 0) {
-            arr[i] = new Pacman(1,1);
-        }
-        else{
-            int rndX = (rand() % 20) + 1;
-            int rndY = (rand() % 20) + 1;
-            if (i < 3){
-                arr[i] = new Berry(rndX, rndY);
+    string combine;
+    int rndX;
+    int rndY;
+
+    for (int i = 0; i < 8; i++)
+    {
+        while(true){
+            rndX = (rand() % 20) + 1;
+            rndY = (rand() % 20) + 1;
+            combine = to_string(rndX) + to_string(rndY);
+
+            if(i == 0){
+                visited[i] = "11";
+                arr[i] = new Pacman(1, 1);
+                break;
+            }
+            else if(checker(visited, combine) == false){
+                continue;
+            }
+            else if(i > 2){
+                visited[i] = combine;
+                arr[i] = new Ghost(rndX, rndY);
+                break;
             }
             else{
-                arr[i] = new Ghost(rndX, rndY);
+                visited[i] = combine;
+                arr[i] = new Berry(rndX, rndY);
+                break;
             }
         }
     }
-
 }
 
 void loadToMap(Entity *arr[8], Map &obj)
@@ -72,20 +101,21 @@ void mapMenu(Map &obj)
 
 int main()
 {
+    srand(time(NULL)); // provides different seed for each run
     Entity *entities[8] = {nullptr};
     createEntities(entities);
-
+    /***
     for (int i = 0; i < 8; i ++){
         int x = entities[i]->getXcoord();
         int y = entities[i]->getYcoord();
         string name = entities[i]->getName();
-        cout << "name = " << name << " x = " << x << " y = " << y << endl;
-    }
+        cout << "name = " << name << " x = " << x << " y = " << y << endl; 
+     }     
+     **/
 
     Map grid;
     loadToMap(entities, grid);
     mapMenu(grid);
-
 
     return 0;
 }
