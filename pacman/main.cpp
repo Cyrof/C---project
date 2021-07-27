@@ -16,7 +16,6 @@ bool Pacmancollisioncheck(Entity *arr[8], char input)
 bool Ghostcollisioncheck(Entity *arr[8], char input)
 {
     int allcoords[];
-    
     for(int i = 0; i < 8; i++)
     {
         
