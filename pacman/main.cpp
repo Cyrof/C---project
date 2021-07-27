@@ -15,7 +15,14 @@ bool Pacmancollisioncheck(Entity *arr[8], char input)
 //checker function for createEntities
 bool checker(string arr[100], string combine)
 {
+<<<<<<< HEAD
     for (int i = 0; i < 8; i++)
+=======
+    int allcoords[];
+for(int i = 0; i < 8; i++)
+{
+    for (int i = 0; i < 100; i++)
+>>>>>>> 9e2395f67dde8ebe983147ee49f50283b82f592d
     {
         for (int i = 0; i < 100; i++)
         {
@@ -30,8 +37,8 @@ bool checker(string arr[100], string combine)
         }
     }
     return false;
+    }
 }
-
 bool Ghostcollisioncheck(Entity *arr[8], char input)
 {
     string allcoords[8];
