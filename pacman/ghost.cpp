@@ -14,7 +14,7 @@ Ghost::~Ghost(){
 
 void Ghost::move(char input){
     
-    srand(time(NULL))
+    //srand(time(NULL))
     this->input = input;
     input = (rand() % 4) + 1;
     switch(input)
