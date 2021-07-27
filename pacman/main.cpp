@@ -106,10 +106,11 @@ int main()
     srand(time(NULL)); // provides different seed for each run
     Entity *entities[8] = {nullptr};
     createEntities(entities);
-
+    
     Map grid;
     loadToMap(entities, grid);
     mapMenu(grid, entities);
+    cout << "hi";
 
     return 0;
 }
