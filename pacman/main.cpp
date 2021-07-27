@@ -10,29 +10,6 @@ int counter = 0;
 
 bool Pacmancollisioncheck(Entity *arr[8], char input)
 {
-
-}
-
-bool Ghostcollisioncheck(Entity *arr[8], char input)
-{
-    int allcoords[];
-    
-    for(int i = 0; i < 8; i++)
-    {
-        
-    }
-} 
-
-//send movement to pacman
-void sendchoice(Entity *arr[8], char input)
-{
-    for (int i = 0; i < 8; i++)
-    {
-        if (arr[i] != nullptr)
-        {
-            arr[i]->move(input);
-        }
-    }
 }
 
 //checker function for createEntities
@@ -50,6 +27,50 @@ bool checker(string arr[100], string combine)
         }
     }
     return false;
+}
+
+bool Ghostcollisioncheck(Entity *arr[8], char input)
+{
+    string allcoords[8];
+    int x, y;
+    string combine;
+
+    for (int i = 0; i < 8; i++)
+    {
+        x = arr[i]->getXcoord();
+        y = arr[i]->getYcoord();
+        combine = to_string(x) + to_string(y);
+        allcoords[i] = combine;
+    }
+
+    for (int j = 3; j <= 5; j++)
+    {
+        x = arr[j]->getXcoord();
+        y = arr[j]->getYcoord();
+        for (int x = 0; x < 4; x++)
+        {
+            switch(x){
+                case 0:
+                    x += 1
+                    combine = to_string(x) + to_string(y);
+                    if (checker(allcoords, combine) == false){
+                        
+                    }
+            }
+        }
+    }
+}
+
+//send movement to pacman
+void sendchoice(Entity *arr[8], char input)
+{
+    for (int i = 0; i < 8; i++)
+    {
+        if (arr[i] != nullptr)
+        {
+            arr[i]->move(input);
+        }
+    }
 }
 
 //not working now
