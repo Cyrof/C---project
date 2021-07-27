@@ -15,20 +15,21 @@ Pacman::~Pacman(){
 }
 
 void Pacman::move(char input){
-    
+    this->input = input;
     switch (input)
     {
         case 'w':
-            Pacman::setCoord(getXcoord(), getYcoord() + 2);
-            break;
-        case 's':
-            Pacman::setCoord(getXcoord(), getYcoord() - 2);
-            break;
-        case 'a':
-            Pacman::setCoord(getXcoord() - 2, getYcoord());
-            break;
-        case 'd':
             Pacman::setCoord(getXcoord() + 2, getYcoord());
             break;
+        case 's':
+            Pacman::setCoord(getXcoord()- 2, getYcoord());
+            break;
+        case 'a':
+            Pacman::setCoord(getXcoord() , getYcoord()- 2);
+            break;
+        case 'd':
+            Pacman::setCoord(getXcoord() , getYcoord()+ 2);
+            break;
     }
+    cout << "Pacman move" << endl;
 }

@@ -10,7 +10,7 @@ class Entity
 protected:
     Position p;
     string name;
-    int EX, EY;
+    char input;
 
     //initialise function
 public:
@@ -22,7 +22,7 @@ public:
     //destructor
     ~Entity();
 
-    //virtual function 
+    //pure virtual function 
     virtual void move(char input) = 0;
 
     //get x coord 
