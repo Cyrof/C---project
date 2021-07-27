@@ -15,30 +15,22 @@ bool Pacmancollisioncheck(Entity *arr[8], char input)
 //checker function for createEntities
 bool checker(string arr[100], string combine)
 {
-<<<<<<< HEAD
-    for (int i = 0; i < 8; i++)
-=======
-    int allcoords[];
-for(int i = 0; i < 8; i++)
-{
+
     for (int i = 0; i < 100; i++)
->>>>>>> 9e2395f67dde8ebe983147ee49f50283b82f592d
     {
-        for (int i = 0; i < 100; i++)
+        if (combine == arr[i])
         {
-            if (combine == arr[i])
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
+
     return false;
-    }
 }
+
 bool Ghostcollisioncheck(Entity *arr[8], char input)
 {
     string allcoords[8];
@@ -62,7 +54,8 @@ bool Ghostcollisioncheck(Entity *arr[8], char input)
             switch (x)
             {
             case 0:
-                x += 1 combine = to_string(x) + to_string(y);
+                x += 1;
+                combine = to_string(x) + to_string(y);
                 if (checker(allcoords, combine) == false)
                 {
                 }
@@ -151,7 +144,7 @@ void mapMenu(Entity *arr[8])
         cout << "(w)Up (s)Down (a)Left (d)Right:";
         cin >> choice;
         sendchoice(arr, choice);
-        if (choice == 0)
+        if (choice == 'x')
         {
             break;
         }
