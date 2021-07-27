@@ -6,6 +6,8 @@ using namespace std;
 
 class Ghost : public Entity
 {
+    private:
+    bool isNearPac;
     //initialise function
     public: 
     //default constructor
@@ -16,7 +18,8 @@ class Ghost : public Entity
 
     //destructor 
     ~Ghost();
-
-    //virtual function from parent 
+    
+    //pure virtual function from parent 
     void move(char input);
+
 };

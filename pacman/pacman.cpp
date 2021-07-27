@@ -19,10 +19,10 @@ void Pacman::move(char input){
     switch (input)
     {
         case 'w':
-            Pacman::setCoord(getXcoord() + 2, getYcoord());
+            Pacman::setCoord(getXcoord() - 2, getYcoord());
             break;
         case 's':
-            Pacman::setCoord(getXcoord()- 2, getYcoord());
+            Pacman::setCoord(getXcoord() + 2, getYcoord());
             break;
         case 'a':
             Pacman::setCoord(getXcoord() , getYcoord()- 2);

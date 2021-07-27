@@ -8,10 +8,6 @@ using namespace std;
 
 int counter = 0;
 
-bool Pacmancollisioncheck(Entity *arr[8], char input)
-{
-}
-
 //checker function for createEntities
 bool checker(string arr[100], string combine)
 {
@@ -20,22 +16,77 @@ bool checker(string arr[100], string combine)
     {
         if (combine == arr[i])
         {
-            return false;
+            return true;
         }
         else
         {
-            return true;
+            return false;
         }
     }
 
     return false;
 }
 
-bool Ghostcollisioncheck(Entity *arr[8], char input)
+void Pacmancollisioncheck(Entity *arr[8], char input)
 {
     string allcoords[8];
-    int x, y;
     string combine;
+    int x, y;
+    for(int i = 0; i < 8; i++)
+    {
+        x = arr[i]->getXcoord();
+        y = arr[i]->getYcoord();
+        combine = to_string(x) + to_string(y);
+        allcoords[i] = combine;
+        for(int x = 0; x < 4; x++)
+        {
+            switch(x)
+            {
+                case 0: // Up
+                 x += 1;
+                 combine = to_string(x) + to_string(y);
+                 if(checker(allcoords,combine) == true)
+                 {
+                     if(arr[1])
+                     {
+
+                     }
+                 }
+            }
+        }
+    }
+}
+
+// get name for Pac, check if P/S, if P, check for Berry
+// if S, check for Ghost
+// In Ghost class, check for Pac, if Pac found, move to Pac
+
+bool checkGhostDir(string arr[3][4], int n)
+{
+    while(true)
+    {
+        int randnum = rand() % 3;
+        if(arr[n][randnum] == "No") // collide
+        {
+            continue;
+        }
+        else
+        {
+            return true;
+            break;
+        }
+    }
+    return false;
+}
+
+void Ghostcollisioncheck(Entity *arr[8])
+{
+    string allcoords[8];
+    string combine;
+    string ghostdir[3][4]; // arr containing 3 ghost, 4 directions
+    bool moveToPac = false;
+    int PacX, PacY;
+    int x, y;
 
     for (int i = 0; i < 8; i++)
     {
@@ -49,20 +100,97 @@ bool Ghostcollisioncheck(Entity *arr[8], char input)
     {
         x = arr[j]->getXcoord();
         y = arr[j]->getYcoord();
-        for (int x = 0; x < 4; x++)
+        for (int x = 0; x < 4; x++) // Check for all 4 directions
         {
             switch (x)
             {
             case 0:
-                x += 1;
+                x += 1; // Up
                 combine = to_string(x) + to_string(y);
-                if (checker(allcoords, combine) == false)
+                if(checker(allcoords,combine) == true)
                 {
+                    ghostdir[j][0] = "No";
+                    if(allcoords[0] == combine)
+                    {
+                        moveToPac = true;
+                    }
+                }
+                else
+                {
+                    ghostdir[j][0] = "Yes";
+                }
+                if(checkGhostDir(ghostdir, j) == true) // check for which ghost (j = 3...)
+                {
+                    arr[j]->setCoord(x,y); // random direction
+                }
+            case 1:
+                x -= 1; // Down
+                combine = to_string(x) + to_string(y);
+                if(checker(allcoords,combine) == true)
+                {
+                    ghostdir[j][1] = "No";
+                    if(allcoords[0] == combine)
+                    {
+                        moveToPac = true;
+                        arr[j]->setCoord(x,y);
+                    }
+                }
+                else
+                {
+                    ghostdir[j][1] = "Yes";
+                }
+                if(checkGhostDir(ghostdir, j) == true) // check for which ghost (j = 3...)
+                {
+                    arr[j]->setCoord(x,y); // random direction
+                }
+            case 2:
+                y += 1; // Right
+                combine = to_string(x) + to_string(y);
+                if(checker(allcoords,combine) == true)
+                {
+                    ghostdir[j][2] = "No";
+                    if(allcoords[0] == combine)
+                    {
+                        moveToPac = true;
+                        //arr[j]->hitPac(moveToPac);
+                        arr[j]->setCoord(x,y);
+                    }
+                }
+                else
+                {
+                    ghostdir[j][2] = "Yes";
+                }
+                if(checkGhostDir(ghostdir, j) == true) // check for which ghost (j = 3...)
+                {
+                    arr[j]->setCoord(x,y); // random direction
+                }
+            case 3:
+                y -= 1; // Left
+                combine = to_string(x) + to_string(y);
+                if(checker(allcoords,combine) == true)
+                {
+                    ghostdir[j][3] = "No";
+                    if(allcoords[0] == combine)
+                    {
+                        moveToPac = true;
+                        arr[j]->setCoord(x,y); // move towards Pacman
+                        
+                    }
+                }
+                else
+                {
+                    ghostdir[j][3] = "Yes";
+                }
+                if(checkGhostDir(ghostdir, j) == true) // check for which ghost (j = 3...)
+                {
+                    arr[j]->setCoord(x,y); // random direction
                 }
             }
         }
     }
-}
+} // if coords is "No" and coords = Pac, move towards Pac
+
+
 
 //send movement to pacman
 void sendchoice(Entity *arr[8], char input)
@@ -99,7 +227,7 @@ void createEntities(Entity *arr[8])
                 arr[i] = new Pacman(1, 1);
                 break;
             }
-            else if (checker(visited, combine) == false)
+            else if (checker(visited, combine) == true)
             {
                 continue;
             }
@@ -144,6 +272,7 @@ void mapMenu(Entity *arr[8])
         cout << "(w)Up (s)Down (a)Left (d)Right:";
         cin >> choice;
         sendchoice(arr, choice);
+        Ghostcollisioncheck(arr);
         if (choice == 'x')
         {
             break;
@@ -163,6 +292,7 @@ int main()
     Entity *entities[8] = {nullptr};
     createEntities(entities);
     mapMenu(entities);
+
 
     return 0;
 }

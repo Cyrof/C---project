@@ -36,4 +36,5 @@ public:
 
     //set pos 
     void setCoord(int x, int y);
+
 };

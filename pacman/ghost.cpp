@@ -13,23 +13,5 @@ Ghost::~Ghost(){
 }
 
 void Ghost::move(char input){
-    
-    //srand(time(NULL))
-    this->input = input;
-    input = (rand() % 4) + 1;
-    switch(input)
-    {
-        case 1:
-            input = 'w';
-            break;
-        case 2:
-            input = 'a';
-            break;
-        case 3:
-            input = 's';
-            break;
-        case 4:
-            input = 'd';
-            break;
-    }
+    // Ghost moves in main
 }
