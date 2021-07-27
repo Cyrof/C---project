@@ -272,6 +272,7 @@ void mapMenu(Entity *arr[8])
         cout << "(w)Up (s)Down (a)Left (d)Right:";
         cin >> choice;
         sendchoice(arr, choice);
+        //not working:
         Ghostcollisioncheck(arr);
         if (choice == 'x')
         {
