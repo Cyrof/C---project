@@ -1,5 +1,6 @@
 #include <iostream>
 #include <time.h>
+#include <string>
 #include "map.h"
 #include "ghost.h"
 #include "pacman.h"
